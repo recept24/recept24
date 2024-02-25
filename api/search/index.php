@@ -9,7 +9,7 @@ if (!isset($_GET['keres']) || empty($_GET['keres'])) {
 
     $keres = $_GET['keres'];
 
-    require 'conn.php';
+    require '../connection/index.php';
 
     $query = mysqli_query($conn, "SELECT * FROM `recept` WHERE rcim LIKE '%$keres%'") or die(mysqli_error($conn));
     while ($fetch = mysqli_fetch_array($query)) {

@@ -38,7 +38,7 @@ function user_create(){
     $upw = $_POST["upw"];
 
     //adatbázis kapcsolat felépítése
-    require 'conn.php';
+    require '../connection/index.php';
 
     //injektálás https://www.php.net/manual/en/mysqli-stmt.bind-param.php
     $stmt = "INSERT INTO user (unick, umail, upw, regtime) VALUES (?, ?, ?, NOW())";

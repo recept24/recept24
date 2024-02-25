@@ -15,7 +15,7 @@ if (check_fields()){
 
 function find_user(){
 
-    require 'conn.php';     //adatbázis kapcsolat felépítése
+    require '../connection/index.php';     //adatbázis kapcsolat felépítése
     
 	//kiolvasása a POST függvénynek:
     $unick = $_POST["unick"];
