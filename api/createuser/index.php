@@ -1,5 +1,6 @@
 <?php
 
+header('Content-Type: application/json; charset=utf-8');
 //Create
 //user hozzáadása az adatbázishoz:
 
@@ -18,7 +19,7 @@ if (check_fields()) {
         user_create();
     //}
 } else {
-    return false;
+    $creteuser = ['hiba' => "Nincs kitöltve megfelelően a regisztráció"];
 }
 
 // ellenőrzése, hogy minden mező ki van-e töltve. szuperglobális($_POST) be van-e állítva és nem üres, azaz be van állítva valami? Később, az adatok részletesebb ellenőrzése is itt valósulhat meg. 
@@ -51,6 +52,15 @@ function user_create(){
 
     mysqli_close($conn);
 
-    return true;
+    $creteuser = [
+        'hiba'          => "0"
+        'unick'         => $unick,
+        'umail'         => $umail,
+        'regtime'       => timestamp()
+    ];
 }
+
+$json = json_encode($creteuser, JSON_UNESCAPED_UNICODE);
+print $json;
+
 ?>
