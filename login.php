@@ -1,45 +1,28 @@
-<?php
-    session_start();
-?>
 
-<!DOCTYPE html>
-<html lang="hu">
-<head>
-    <meta charset="UTF-8">
-    <title>Recept24</title>
-    <link href="menu.css" type="text/css" rel="stylesheet">
-    <link href="login.css" type="text/css" rel="stylesheet">
+<div class="login-container">
 
-</head>
+<h2>Login</h2>
 
-<body>
+<form action="login.php" method="post" id="login-form">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
 
-    <h2>Login</h2>
+    <br>
 
-    <form action="login.php" method="post" id="login">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
 
-        <br>
+    <br>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+    <input id="login-button" type="submit" value="Login">
+</form>
 
-        <br>
+<h2>MÉG NEM REGISZTRÁLTÁL?</h2>
 
-        <input id="login" type="submit" value="Login">
-    </form>
+<a href="register.php">REGISZTRÁCIÓ</a>
 
-    <h2>MÉG NEM REGISZTRÁLTÁL?</h2>
-
-    <a href="register.php">REGISZTRÁCIÓ</h2></a><h2>
-
-</body>
-
-<?php
+</div>
 
 
-
-?>
 
 

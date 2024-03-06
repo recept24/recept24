@@ -26,20 +26,14 @@ if (!isset($_POST['upw']))
     /*echo '<div class="g-recaptcha" data-sitekey="6LdTFmcpAAAAAOQWMm0gqWKYyqagZPNpeLuYajXm"></div>';*/
     echo '<button type="submit" id="submitBtn">Regisztrál</button>';
     echo '</form>';
-?>
-    <script>
-        document.getElementById('submitBtn').addEventListener('click', function() {
-            document.getElementById('autoFilledForm').submit();
-        });
-    </script>
-<?php
+
 }
 else
 {
 
     $hashedPassword = password_hash(($_POST['upw']),PASSWORD_DEFAULT);
 
-    echo '<form method="post" action="database/startsql/createUser.php" id="autoFilledForm">';
+    echo '<form method="post" action="api/createuser/index.php" id="autoFilledForm">';
     echo '<label for="email">Emailcím:</label>';
     echo '<input type="email" id="umail" name="umail" value="' . $_POST['umail'] . '" required>';
     echo '<label for="username">Felhasználónév:</label>';
@@ -50,6 +44,11 @@ else
     echo '<button type="submit">Regisztrál</button>';
     echo '</form>';
 
+    ?>
+    <script>
+            document.getElementById('autoFilledForm').submit();
+    </script>
+    <?php
 }
 
 

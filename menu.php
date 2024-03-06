@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="menu.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -11,20 +13,20 @@
 $loggedIn = isset($_SESSION['username']);
 
 $menuItems = array(
-    'Kezdőlap',
-    'Keresés',
-    'Chat',
+    '<img src="logo.png" alt="Kezdőlap" id="logo">',
+    'Receptek',
+    'Chat', 
     'Recept feltöltés',
     'Belépés',
 );
 
 $menuUrls = array(
     'index',
-    'find',
+    'recipe',
     'chat',
     'upload',
     'login',
-);
+);  
 
 echo '<ul class="navbar">';
 for ($i = 0; $i < count($menuItems); $i++) {
@@ -34,11 +36,12 @@ echo '</ul>';
 
 $p = isset($_GET['p']) ? $_GET['p'] : '';
 
-if ($p == $menuUrls[0])  include("./index.php");
-elseif ($p == $menuUrls[1])  include("find.php");
+if ($p==$menuUrls[0]) include("recipe.php");
+elseif ($p == $menuUrls[1])  include("recipe.php");
 elseif ($p == $menuUrls[2])  include("chat.php");
 elseif ($p == $menuUrls[3])  include("upload.php");
 elseif ($p == $menuUrls[4])  include("login.php");
+else include("recipe.php");
 
 ?>
 
