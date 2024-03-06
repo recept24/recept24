@@ -19,7 +19,7 @@ if (check_fields()) {
         user_create();
     //}
 } else {
-    $creteuser = ['hiba' => "Nincs kitöltve megfelelően a regisztráció"];
+    $createuser = ['hiba' => "Nincs kitöltve megfelelően a regisztráció"];
 }
 
 // ellenőrzése, hogy minden mező ki van-e töltve. szuperglobális($_POST) be van-e állítva és nem üres, azaz be van állítva valami? Később, az adatok részletesebb ellenőrzése is itt valósulhat meg. 
@@ -52,15 +52,15 @@ function user_create(){
 
     mysqli_close($conn);
 
-    $creteuser = [
-        'hiba'          => "0",
+    $createuser = [
+        'hiba'          => 0,
         'unick'         => $unick,
         'umail'         => $umail,
         'regtime'       => date('Y-m-d H:i:s')
     ];
 }
 
-$json = json_encode($creteuser, JSON_UNESCAPED_UNICODE);
+$json = json_encode($createuser, JSON_UNESCAPED_UNICODE);
 print $json;
 
 ?>
