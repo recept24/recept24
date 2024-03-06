@@ -17,6 +17,12 @@ if (check_fields()) {
     //    return false;
     //} else {
         user_create();
+        $createuser = [
+            'hiba'          => 0,
+            'unick'         => $_POST["unick"],
+            'umail'         => $_POST["umail"],
+            'regtime'       => date('Y-m-d H:i:s')
+        ];
     //}
 } else {
     $createuser = ['hiba' => "Nincs kitöltve megfelelően a regisztráció"];
@@ -52,12 +58,6 @@ function user_create(){
 
     mysqli_close($conn);
 
-    $createuser = [
-        'hiba'          => 0,
-        'unick'         => $unick,
-        'umail'         => $umail,
-        'regtime'       => date('Y-m-d H:i:s')
-    ];
 }
 
 $json = json_encode($createuser, JSON_UNESCAPED_UNICODE);
