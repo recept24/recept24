@@ -53,10 +53,10 @@ function user_create(){
     mysqli_close($conn);
 
     $creteuser = [
-        'hiba'          => "0"
+        'hiba'          => "0",
         'unick'         => $unick,
         'umail'         => $umail,
-        'regtime'       => timestamp()
+        'regtime'       => date('Y-m-d H:i:s')
     ];
 }
 
