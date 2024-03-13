@@ -21,9 +21,10 @@ JSON fájlba visszadott eredmény, lehet sikertelen vagy sikeres:
     `umail` tartalma az emailcím
     `regtime` tartalma a rögzítés időpillanata
 
+kiegészítő funkció:
+- felhasználó meglétének ellenőrzése (dupla regisztráció kiszűrése)
 
 fejlesztési ötletek:
-- felhasználó meglétének ellenőrzése (dupla regisztráció kiszűrése)
 - felhasználói icon hozzárendelhetősége
 - felhasználói profil szerkesztésének lehetősége (nickname vagy email megváltoztathatósága)
 
