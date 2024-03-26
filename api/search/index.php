@@ -33,7 +33,10 @@ if (!isset($_GET['keres']) || empty($_GET['keres'])) {
     mysqli_close($conn);
 }
 
-if (!isset($tombs)) {
+if (isset($tombs)) {
+    array_unshift($tombs, ['hiba'=> 0] );
+}
+else {
     $tombs = ['hiba' => "Nem találtam a kérésnek megfelelőt!"];
 }
 

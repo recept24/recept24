@@ -3,16 +3,21 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #f1f1f1; /* Set your background color */
+    background-color: #f1f1f1; 
+    font-size: 30px;
+
+    font-family: "Teko", sans-serif;
 }
 
 .navbar li {
     float: left;
 }
 
+
+
 .navbar li a {
     display: block;
-    color: #333; /* Set your text color */
+    color: black; 
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -53,4 +58,9 @@
 
 .navbar li.dropdown:hover .dropdown-content {
     display: block;
-}   
+}
+
+/* Set the width of the logo image to 30px */
+#logo {
+    width: 120px;
+}
