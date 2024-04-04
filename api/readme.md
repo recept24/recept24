@@ -37,17 +37,16 @@ fejlesztési ötletek:
 **input:**
 POST metódusban várt változók:
 - `unick`
-- `umail`
 - `upw`
 
 **output:**
 JSON fájlba visszadott eredmény, lehet sikertelen vagy sikeres:
 - sikertelen
     `hiba` változó tartalma:
-    > "Nincs kitöltve megfelelően a regisztráció"
+    > "Hibás Username vagy Password!"
 - sikeres
     `hiba` változó `0` értékű
     `unick` tartalma a nicname
     `umail` tartalma az emailcím
-    `regtime` tartalma a rögzítés időpillanata
+    `upw` jelszó, visszaadása a bevitelnek megfelelően történik, az adatbázisban szereplő kódolt karakterlánc formájában.
 
