@@ -1,16 +1,16 @@
-##Api leírásai:
+## Api leírásai:
 
-#####Felhasználó regisztráció:
-**elérése:**
+### Felhasználó regisztráció:  
+**elérése:**  
 ./createuser/index.php
 
-**input:**
+**input:**  
 POST metódusban várt változók:
 - `unick`
 - `umail`
 - `upw`
 
-**output:**
+**output:**  
 JSON fájlba visszadott eredmény, lehet sikertelen vagy sikeres:
 - sikertelen  
     `hiba` változó tartalma:
@@ -30,16 +30,16 @@ fejlesztési ötletek:
 
 ---
 
-#####Felhasználói bejelentkezés:
-**elérése:**
+### Felhasználói bejelentkezés:  
+**elérése:**  
 ./finduser/index.php
 
-**input:**
+**input:**  
 POST metódusban várt változók:
 - `unick`
 - `upw`
 
-**output:**
+**output:**  
 JSON fájlba visszadott eredmény, lehet sikertelen vagy sikeres:
 - sikertelen  
     `hiba` változó tartalma:
