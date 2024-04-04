@@ -12,14 +12,14 @@ POST metódusban várt változók:
 
 **output:**
 JSON fájlba visszadott eredmény, lehet sikertelen vagy sikeres:
-- sikertelen
+- sikertelen  
     `hiba` változó tartalma:
     > "Nincs kitöltve megfelelően a regisztráció"
-- sikeres
-    `hiba` változó `0` értékű
-    `unick` tartalma a nicname
-    `umail` tartalma az emailcím
-    `regtime` tartalma a rögzítés időpillanata
+- sikeres  
+    `hiba` változó `0` értékű  
+    `unick` tartalma a nicname  
+    `umail` tartalma az emailcím  
+    `regtime` tartalma a rögzítés időpillanata  
 
 kiegészítő funkció:
 - felhasználó meglétének ellenőrzése (dupla regisztráció kiszűrése)
@@ -41,12 +41,12 @@ POST metódusban várt változók:
 
 **output:**
 JSON fájlba visszadott eredmény, lehet sikertelen vagy sikeres:
-- sikertelen
+- sikertelen  
     `hiba` változó tartalma:
     > "Hibás Username vagy Password!"
-- sikeres
-    `hiba` változó `0` értékű
-    `unick` tartalma a nicname
-    `umail` tartalma az emailcím
-    `upw` jelszó, visszaadása a bevitelnek megfelelően történik, az adatbázisban szereplő kódolt karakterlánc formájában.
+- sikeres  
+    `hiba` változó `0` értékű  
+    `unick` tartalma a nicname  
+    `umail` tartalma az emailcím  
+    `upw` jelszó, visszaadása a bevitelnek megfelelően történik, az adatbázisban szereplő kódolt karakterlánc formájában.  
 
