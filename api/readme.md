@@ -50,3 +50,31 @@ JSON fájlba visszadott eredmény, lehet sikertelen vagy sikeres:
     `umail` tartalma az emailcím  
     `upw` jelszó, visszaadása a bevitelnek megfelelően történik, az adatbázisban szereplő kódolt karakterlánc formájában.  
 
+
+---
+
+### Recept feltöltése:  
+
+**elérése:**  
+./recipeupload/index.php
+
+**input:**  
+POST metódusban várt változók:
+- `rcim`
+- `rcim`
+- `rleiras`
+- `rido`
+- `rnehezseg`
+- `uid`
+
+**output:**  
+JSON fájlba visszadott eredmény, lehet sikertelen vagy sikeres:
+- sikertelen  
+    `hiba` változó tartalma:
+    > "Nincs kitöltve megfelelően a recept"
+    
+- sikeres  
+    `hiba` változó `0` értékű  
+    `rcim` tartalma a nicname  
+    `rcim` tartalma az emailcím  
+    `upw` jelszó, visszaadása a bevitelnek megfelelően történik, az adatbázisban szereplő kódolt karakterlánc formájában.  
