@@ -26,6 +26,8 @@ $menuUrls = array(
     'chat',
     'upload',
     'login',
+    
+    
 );  
 
 echo '<ul class="navbar">';
@@ -41,6 +43,7 @@ elseif ($p == $menuUrls[1])  include("recipe.php");
 elseif ($p == $menuUrls[2])  include("chat.php");
 elseif ($p == $menuUrls[3])  include("upload.php");
 elseif ($p == $menuUrls[4])  include("login.php");
+elseif ($p == 'register') include("register.php");
 else include("recipe.php");
 
 ?>
