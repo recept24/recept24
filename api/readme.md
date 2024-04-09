@@ -78,7 +78,7 @@ JSON fájlba visszadott eredmény, lehet sikertelen vagy sikeres:
     `rcim` tartalma a recept címe  
     `rhozzavalok` tartalma az recept összetevői  
     `rleiras` tartalma a recept elkészítési leírása  
-    `rido` elkészítés időtartalma
+    `rido` elkészítés időtartalma  
     `rnehezseg` elkészítés nehézsége  
     `uid` a feltöltő adatázisban szereplő felhasználói azonosítója  
 
