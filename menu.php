@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href="menu.css" type="text/css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
-</head>
-<body>
+
 
 <?php
 $loggedIn = isset($_SESSION['username']);
@@ -47,13 +38,3 @@ elseif ($p == 'register') include("register.php");
 else include("recipe.php");
 
 ?>
-
-<script>
-function toggleDropdown(btn) {
-    var dropdownContent = btn.nextElementSibling;
-    dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
-}
-</script>
-
-</body>
-</html>
