@@ -77,9 +77,9 @@ JSON fájlba visszadott eredmény, lehet sikertelen vagy sikeres:
     `hiba` változó `0` értékű  
     `rcim` tartalma a recept címe  
     `rhozzavalok` tartalma az recept összetevői  
-    `rleiras` tartalma a recept elkészítési leírása
+    `rleiras` tartalma a recept elkészítési leírása  
     `rido` elkészítés időtartalma
-    `rnehezseg` elkészítés nehézsége
+    `rnehezseg` elkészítés nehézsége  
     `uid` a feltöltő adatázisban szereplő felhasználói azonosítója  
 
 fejlesztési ötletek: 
