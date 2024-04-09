@@ -61,7 +61,7 @@ JSON fájlba visszadott eredmény, lehet sikertelen vagy sikeres:
 **input:**  
 POST metódusban várt változók:
 - `rcim`
-- `rcim`
+- `rhozzavalok`
 - `rleiras`
 - `rido`
 - `rnehezseg`
@@ -75,6 +75,12 @@ JSON fájlba visszadott eredmény, lehet sikertelen vagy sikeres:
     
 - sikeres  
     `hiba` változó `0` értékű  
-    `rcim` tartalma a nicname  
-    `rcim` tartalma az emailcím  
-    `upw` jelszó, visszaadása a bevitelnek megfelelően történik, az adatbázisban szereplő kódolt karakterlánc formájában.  
+    `rcim` tartalma a recept címe  
+    `rhozzavalok` tartalma az recept összetevői  
+    `rleiras` tartalma a recept elkészítési leírása
+    `rido` elkészítés időtartalma
+    `rnehezseg` elkészítés nehézsége
+    `uid` a feltöltő adatázisban szereplő felhasználói azonosítója  
+
+fejlesztési ötletek: 
+- képek hozzáfűzési lehetősége.
