@@ -45,7 +45,8 @@ JSON fájlba visszadott eredmény, lehet sikertelen vagy sikeres:
     `hiba` változó tartalma:
     > "Hibás Username vagy Password!"
 - sikeres  
-    `hiba` változó `0` értékű  
+    `hiba` változó `0` értékű
+    `uid` tartalma az adatbázisban a felhasználóhoz automatikusan generált id 
     `unick` tartalma a nicname  
     `umail` tartalma az emailcím  
     `upw` jelszó, visszaadása a bevitelnek megfelelően történik, az adatbázisban szereplő kódolt karakterlánc formájában.  
