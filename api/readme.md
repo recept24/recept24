@@ -16,10 +16,7 @@ JSON fájlba visszadott eredmény, lehet sikertelen vagy sikeres:
     `hiba` változó tartalma:
     > "Nincs kitöltve megfelelően a regisztráció"
 - sikeres  
-    `hiba` változó `0` értékű  
-    `unick` tartalma a nicname  
-    `umail` tartalma az emailcím  
-    `regtime` tartalma a rögzítés időpillanata  
+    `hiba` változó `0` értékű
 
 kiegészítő funkció:
 - felhasználó meglétének ellenőrzése (dupla regisztráció kiszűrése)
