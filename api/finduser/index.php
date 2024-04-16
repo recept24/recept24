@@ -12,7 +12,7 @@ function find_user(){
     $upw = $_POST["password"];
 
 
-    $search = mysqli_query($conn, "SELECT unick, umail, upw FROM user WHERE unick = '$unick'");
+    $search = mysqli_query($conn, "SELECT uid, unick, umail, upw FROM user WHERE unick = '$unick'");
     $row = mysqli_fetch_assoc($search);
         
     if ($upw==$row['upw']) {
