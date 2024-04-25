@@ -15,7 +15,7 @@ function find_user()
     $search = mysqli_query($conn, "SELECT uid, unick, umail, upw FROM user WHERE unick = '$unick'");
     $row = mysqli_fetch_assoc($search);
 
-    if ($row) {
+    if (isset($row['upw'])) {
         // Van eredmény a lekérdezésből
         if ($upw != "" && $upw == $row['upw']) {
             $finduserFunc = ['hiba' => 0] + $row;
@@ -25,7 +25,7 @@ function find_user()
             // Nincs megfelelő találat!;
         }
     } else {
-        $finduserFunc = ['hiba' => "Teszt Hibás Username vagy Password! Teszt"];
+        $finduserFunc = ['hiba' => "Hibás Username vagy Password!"];
         // Nincs találat!;
     }
 
