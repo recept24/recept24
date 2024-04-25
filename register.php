@@ -1,17 +1,57 @@
-<!DOCTYPE html>
-<html lang="hu">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regisztráció</title> 
-    
-    <link rel="stylesheet" href="register.css" type="text/css">
-
-</head>
-<body>
 <?php
 
-if (!isset($_POST['upw']))
+
+if(isset($_POST['upw']))
+{
+    $pwd = $_POST['upw'];
+    $hashedPassword = md5($pwd, $binary = false);
+    
+    $apiUrl = 'http://recept24.szakdoga.net/api/createuser/index.php';
+
+    $userAgent = 'Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.9999.99 Safari/537.36';
+
+
+    $data = [
+        'umail' => $_POST['umail'],
+        'unick' => $_POST['unick'],
+        'upw'   => $hashedPassword,
+    ];
+    
+    $ch = curl_init($apiUrl);
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+    curl_setopt($ch, CURLOPT_USERAGENT, $userAgent);
+    
+    $response = curl_exec($ch);
+    $responseData = json_decode($response);
+    
+    if ($response === false) {
+        echo 'cURL request failed: ' . curl_error($ch);
+    } else {
+        if ($responseData->hiba == "0")
+        {
+            echo "<h2>Sikeres regisztráció!</h2>";
+            echo '<a href="?p=login">Bejelentkezés!</a>';
+            
+        }
+        else
+        {
+            print($responseData->hiba);
+            
+
+
+            //header("Refresh:0; url=http://recept24.szakdoga.net/?p=register.php");
+        }
+
+    }
+    
+    
+
+    curl_close($ch);
+}
+if (!isset($_POST['upw']) || (isset($_POST['upw']) && ($responseData->hiba != "0")))
 {
     ?>
     <div class="container">
@@ -20,7 +60,7 @@ if (!isset($_POST['upw']))
     <div class="subtitle">Regisztráció!</div>
     
 
-    <form method="post" action="register.php" id="register">
+    <form method="post" action="?p=register" id="register">
     <div class="input-container ic1">
     <input type="email" id="umail" name="umail" class="input" required placeholder=" ">
     <div class="cut cutshort1"></div>
@@ -53,51 +93,5 @@ if (!isset($_POST['upw']))
     <?php
     echo '</div>';
 }
-else
-{
-
-    $hashedPassword = password_hash(($_POST['upw']),PASSWORD_DEFAULT);
-
-    $apiUrl = 'http://recept24.szakdoga.net/api/createuser/index.php';
-
-    $userAgent = 'Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.9999.99 Safari/537.36';
-
-
-    $data = [
-        'umail' => $_POST['umail'],
-        'unick' => $_POST['unick'],
-        'upw'   => $hashedPassword,
-    ];
-    
-    $ch = curl_init($apiUrl);
-    
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-    curl_setopt($ch, CURLOPT_USERAGENT, $userAgent);
-    
-    $response = curl_exec($ch);
-    $json_response = json_decode($response);
-
-    
-
-
-    if ($response === false) {
-        echo 'cURL request failed: ' . curl_error($ch);
-    } else {
-        //echo $response;
-    }
-    
-    
-
-    curl_close($ch);
-}
-
 
 ?>
-
-
-
-</body>
-
-</html>

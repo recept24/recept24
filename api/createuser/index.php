@@ -1,35 +1,29 @@
 <?php
-//Create user hozzáadása az adatbázishoz:
+// Create user hozzáadása az adatbázishoz:
 
 header('Content-Type: application/json; charset=utf-8');
 
 // fő logika, az eredmény kimenetekkel:
-if (check_fields()) {
-    if (free_user()) {
-        user_create();
-        $createuser = [
-            ['hiba'          => 0],
-            [
-                'unick'         => $_POST["unick"],
-                'umail'         => $_POST["umail"],
-                'regtime'       => date('Y-m-d H:i:s')
-            ]
-        ];
-    } else {
-        $createuser = ['hiba' => "Létezik már ilyen regiaztráció!"];
-    }
-} else {
+if (!check_fields()) {
     $createuser = ['hiba' => "Nincs kitöltve megfelelően a regisztráció"];
+} elseif (!free_user()) {
+    $createuser = ['hiba' => "Létezik már ilyen regisztráció!"];
+} else {
+    user_create();
+    $createuser = ['hiba'          => 0];
 }
+
+$json = json_encode($createuser, JSON_UNESCAPED_UNICODE);
+print $json;
 
 // ellenőrzése, hogy minden mező ki van-e töltve. szuperglobális($_POST) be van-e állítva és nem üres, azaz be van állítva valami?
 function check_fields()
 {
-    $unick = isset($_POST["unick"]) && !empty($_POST["unick"]);
-    $umail = isset($_POST["umail"]) && !empty($_POST["umail"]);
-    $upw = isset($_POST["upw"]) && !empty($_POST["upw"]);
-    return $unick && $umail && $upw;
+    return isset($_POST["unick"]) && !empty($_POST["unick"]) &&
+        isset($_POST["umail"]) && !empty($_POST["umail"]) &&
+        isset($_POST["upw"]) && !empty($_POST["upw"]);
 }
+
 // szabad-e a felhasználónév, illetve emailcím.
 function free_user()
 {
@@ -44,17 +38,12 @@ function free_user()
 
     mysqli_close($conn);
 
-    if (!isset($row)) {
-        return TRUE;
-    } elseif ($row['unick'] == $unick || $row['umail'] == $umail) {
-        $finduser = ['hiba' => "Létezik már ilyen regiaztráció!"];
-        return FALSE;
-    };
+    return !isset($row);
 }
+
 // felhasználó beírása az adatbázisba.
 function user_create()
 {
-
     //a POST függvény kiolvasása, a htmlspecialchars() segítségével bizonyos karakterek ", ', <, >  kikódolásával:
     $unick = htmlspecialchars($_POST["unick"]);
     $umail = htmlspecialchars($_POST["umail"]);
@@ -74,6 +63,4 @@ function user_create()
 
     mysqli_close($conn);
 }
-
-$json = json_encode($createuser, JSON_UNESCAPED_UNICODE);
-print $json;
+?>

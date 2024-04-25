@@ -15,32 +15,36 @@
         $keres = $_GET['keres'];
         $fu   = @fopen( "http://recept24.szakdoga.net/api/search/index.php?keres=$keres" , "r" ) ;
     $json = fread( $fu , 8192 ) ;
-    fclose( $fu ) ;
+    
+    fclose( $fu );
 
     $adat = json_decode( $json ) ;
 
+    
 
-    if (isset($adat->hiba))
+    if (($adat[0]->hiba == 0))
     {
-        echo  "<h2>" . $adat->hiba . "</h2>";
-    }
-    else
-    {
+        
         echo '<div class="recipe-container">';
-        foreach ($adat as $recipe) {
+        for ($i = 1; $i<count($adat);$i++) {
             ?>
             <div class="recipe">   
-                <h2><?php echo $recipe->rcim; ?>    </h2>
-                <p>Hozzávalok: <?php echo $recipe->rhozzavalok; ?></p>
-                <p>Elkészítés: <?php echo $recipe->rleiras; ?></p>
-                <p>Sütési idő: <?php echo $recipe->rido; ?> minutes</p>
-                <p>Nehézség: <?php echo $recipe->rnehezseg; ?></p>
+                <h2><?php echo $adat[$i]->rcim; ?>    </h2>
+                <p>Hozzávalok: <?php echo $adat[$i]->rhozzavalok; ?></p>
+                <p>Elkészítés: <?php echo $adat[$i]->rleiras; ?></p>
+                <p>Sütési idő: <?php echo $adat[$i]->rido; ?> minutes</p>
+                <p>Nehézség: <?php echo $adat[$i]->rnehezseg; ?></p>
             </div>
             <?php
         }
         echo '</div>';
+        
     }
-    }    
+    else
+    {
+        echo "<h2>" . $adat[0]->hiba . "</h2>";
+    }
+    }
     else{
         $keres = "";
     }
