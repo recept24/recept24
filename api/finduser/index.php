@@ -15,21 +15,23 @@ function find_user()
     $search = mysqli_query($conn, "SELECT uid, unick, umail, upw FROM user WHERE unick = '$unick'");
     $row = mysqli_fetch_assoc($search);
 
-    if ($upw != "" && $upw == $row['upw']) {
-        $finduser = ['hiba' => 0] + $row;
-        //Van megfelelő találat!;
+    if ($row) {
+        // Van eredmény a lekérdezésből
+        if ($upw != "" && $upw == $row['upw']) {
+            $finduserFunc = ['hiba' => 0] + $row;
+            // Van megfelelő találat!;
+        } else {
+            $finduserFunc = ['hiba' => "Hibás Username vagy Password!"];
+            // Nincs megfelelő találat!;
+        }
     } else {
-        $finduser = ['hiba' => "Hibás Username vagy Password!"];
-        //Nincs találat!;
+        $finduserFunc = ['hiba' => "Teszt Hibás Username vagy Password! Teszt"];
+        // Nincs találat!;
     }
 
     mysqli_close($conn);
 
-    if (is_null($finduser)) {
-        $finduser = ['hiba' => " TESZT Hibás Username vagy Password! TESZT"];
-    }
-
-    return $finduser;
+    return $finduserFunc;
 }
 
 $finduser = find_user();
