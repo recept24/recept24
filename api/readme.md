@@ -14,7 +14,7 @@ POST metódusban várt változók:
 JSON fájlba visszadott eredmény, lehet sikertelen vagy sikeres:
 - sikertelen  
     `hiba` változó tartalma 2 féle lehet az alábbiak szerint:
-    > "Nincs kitöltve megfelelően a regisztráció"
+    > "Nincs kitöltve megfelelően a regisztráció"  
     > "Létezik már ilyen regisztráció!"
 - sikeres  
     `hiba` változó `0` értékű
