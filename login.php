@@ -25,7 +25,7 @@ if (isset($_POST['password'])) {
     curl_close($ch);
 
     $responseData = json_decode($response, true);
-    var_dump($responseData);
+
     if ($responseData['hiba'] === 0) {
 
         echo "<h2>Sikeres bejelentkezés!</h2>";
